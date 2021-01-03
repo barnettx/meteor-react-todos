@@ -20,6 +20,7 @@ const deleteTask = ({ _id }) => TasksCollection.remove(_id)
 export const App = () => {
   const [hideCompleted, setHideCompleted] = useState(false);
   const user = useTracker(() => Meteor.user())
+  const logout = () => Meteor.logout()
 
   const hideCompletedFilter = { isChecked: { $ne: true } };
   const userFilter = user ? { userId: user._id } : {};
@@ -48,6 +49,7 @@ export const App = () => {
   const pendingTasksTitle = pendingTasksCount ? `(${pendingTasksCount})` : ''
 
 
+
   return (
     <div className="app">
       <header>
@@ -62,6 +64,9 @@ export const App = () => {
         {
           user ? (
             <Fragment>
+              <div className="user" onClick={logout}>
+                {user.username}
+              </div>
               <TaskForm user={user}/>
               <div className="filter">
                 <button onClick={(() => setHideCompleted(!hideCompleted))}>
