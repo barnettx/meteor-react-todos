@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 
 import { TasksCollection } from '../imports/api/TasksCollection';
 import { Accounts } from 'meteor/accounts-base';
+import '../imports/api/tasksMethods';
 
 Meteor.startup(() => {
   if (TasksCollection.find().count() === 0) {
