@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { useTracker } from 'meteor/react-meteor-data';
 
-import { TasksCollection } from '../api/TasksCollection';
+import { TasksCollection } from '../db/TasksCollection';
 import { Task } from './Task';
 
 import { TaskForm } from './TaskForm';
